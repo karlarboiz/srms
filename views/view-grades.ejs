@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('include/header',{
+    Title: "View Grades"
+  }) %>
+</head>
+<body>
+    <%- include('include/nav') %>
+    <% if(!gradedSubjects || gradedSubjects.length === 0) {%>
+
+      <h1 class="display-4 container mx-auto mt-5 text-center view-grades__header">
+        Releasing of grades will happen soon. Please standby
+      </h1>
+    <%} else {%>
+      <div class="container mx-auto mt-5">
+        <table class="table table-light">
+          <thead class="thead-dark">
+            <tr>
+    
+              <th scope="col">Subject Name</th>
+              <th scope="col">Teacher</th>
+              <th scope="col">Grades</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+  
+            <%for( const data of gradedSubjects) {%>
+              <tr>
+           
+                <td><%= data.subjectName %></td>
+                <td><%= data.teacherName %></td>
+                <td><%= data.grades %></td>
+              </tr>
+            <%}%>
+      
+          </tbody>
+        </table>
+      </div>
+    <%}%>
+    <%- include('include/bootstrapfunctionalities') %>
+</body>
+</html>

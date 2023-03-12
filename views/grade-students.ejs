@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('include/header',{
+    Title: "Grade Students"
+  }) %>
+</head>
+<body>
+    <%- include('include/nav') %>
+
+    <% if(gradeInput.error) {%>
+      <h5 class="container mx-auto text-center mt-5">
+        <%= gradeInput.message %>
+      </h5>
+    <%}%>
+
+    <% if(gradedSubjects.length === 0 || !gradedSubjects) {%>
+     
+        <table class="table table-light mt-5 container grade-students__form">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Subject Name</th>
+              <th scope="col">Student Name</th>
+              <th scope="col">Grade</th>
+            </tr>
+          </thead>
+          <tbody>
+  
+            <form action="/submit-grade/<%=locals.userID%>" method="POST">
+              <%for(let i = 0; i < assignedStudents.length;i++) {%>
+                <tr>
+                  <th scope="row"><%=i + 1%></th>
+                  <td><%= assignedStudents[i].subjectName %></td>
+                  <td><%= assignedStudents[i].enrolledUserIDName %> </td>
+                  <td><input type="number" placeholder="Grade" name="grade" value="<%= gradeInput.grades[i] %>"></td>
+                </tr>
+              <%}%>
+  
+              <tr>
+                <th></th>
+                <td></td>
+                <td></td>
+                <td><input type="submit" value="Submit Grades" class="grade-students__form-btn"></td>
+              </tr>
+            </form>
+      
+          </tbody>
+        </table>
+  
+    <%} else {%>
+      <div class="container mx-auto mt-5">
+
+        <table class="table table-light mt-5 container">
+          <thead class="thead-dark">
+            <tr>
+            
+              <th scope="col">Student Name</th>
+              <th scope="col">Subject Name</th>
+              <th scope="col">Grade</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+      
+       
+              <% for(const data of gradedSubjects) {%>
+                <tr>
+               
+                  <td> <%= data.enrolledUserIDName  %> </td>
+                  <td> <%= data.subjectName  %> </td>
+                  <td><%= data.grades %></td>
+                  <td><a href="/submit-grade/<%=data._id%>/edit/<%=locals.userID%>">edit</a></td>
+                </tr>
+              <%}%>
+    
+      
+          </tbody>
+        </table>
+
+      <%}%>
+
+    
+
+    <%- include('include/bootstrapfunctionalities') %>
+</body>
+</html>

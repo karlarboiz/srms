@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('include/header',{
+        Title: "Settings"
+      }) %>
+</head>
+<body>
+    <%- include('include/nav') %>
+    
+    <div class="container mx-auto profile mt-5 text-center">
+        <p class="profile--name m-3">Hi! <span><%= storedata.name.firstName %></span></p>
+        <img src="/<%= storedata.photo%> " alt="This is Photo" class="profile--photo">
+        <br>
+        <a href="/profile/<%=locals.userID%>/edit" class="mt-2 mb-2 profile-edit__btn">edit profile</a>
+
+
+        <form action="/logout" method="POST" class="mt-3">
+            <input type="submit" value="Logout" class="profile--logout__btn">
+        </form>
+    </div>
+    <%- include('include/bootstrapfunctionalities') %>
+</body>
+</html>

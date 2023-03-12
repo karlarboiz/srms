@@ -1,0 +1,26 @@
+@use '../../abstract' as *;
+@use '../../mixin' as *;
+
+.enrollment-form {
+
+    &__message {
+        @include errorMessage;
+    }
+
+    &__btn {
+        @include buttonDesigns;
+        background-color: $secondary-color;
+        color: $primary-color;
+    }
+}
+
+.enrolled {
+    &__header {
+        color: $primary-color;
+    }
+
+    a {
+        @include linkDesign;
+        
+    }
+}

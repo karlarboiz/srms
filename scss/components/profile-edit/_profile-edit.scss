@@ -1,0 +1,12 @@
+@use '../../abstract' as *;
+@use '../../mixin' as *;
+
+.profile-edit {
+    &__header {
+        color: $primary-color
+    }
+    &__btn-update {
+        @include buttonDesigns;
+      
+    }
+}

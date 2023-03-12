@@ -1,0 +1,8 @@
+@use '../../abstract' as *;
+
+body {
+    margin: 0 0;
+    padding: 0 0;
+    font-family:$font-family;
+    background-color: $third;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('include/header',{
+      Title: "Login"
+    }) %>
+</head>
+<body>
+
+ 
+    <%- include('include/nav') %>
+
+    <% if(loginData.error) {%>
+      <h5 class="container-fluid text-center log-in__message"><%=loginData.message%></h5>
+    <%}%>
+    <form action="/log-in/enter" method="POST" class="container mx-auto col-lg-5 mt-5 log-in">
+      <input type="hidden" value="<%= locals.csrfToken %>" name="_csrf">
+      <h5 class="text-center log-in__header">Log In</h5>
+      <div class="form-floating mb-3 mt-3">
+        <input type="text" class="form-control"  placeholder="Enter Username" id="username" value="<%=loginData.username%>" name="username">
+        <label for="username">Username</label>
+      </div>
+      
+      <div class="form-floating mt-3 mb-3">
+        <input type="password" class="form-control" id="pwd" placeholder="Enter Password" name="pwd">
+        <label for="pwd">Password</label>
+      </div>
+
+      <div class="mt-3 mb-3">
+        
+        <select class="form-select" name="designation" aria-label="Default select example">
+
+          <% for(const data of designation) {%>
+            <option value="<%=data._id%>"><%=data.position%></option>
+          <%}%>
+        </select>
+
+      </div>
+
+      <div class="form-floating mt-3 mb-3">
+        <input type="text" class="form-control" id="code" placeholder="Enter Code" value="<%=loginData.code%>" name="code">
+        <label for="code">Code</label>
+      </div>
+
+      <div class="mt-3 mb-3 text-center ">
+        <input type="submit" value="Log In" class="log-in__btn">
+      </div>
+
+     
+      </form>
+
+      <%- include('include/bootstrapfunctionalities') %>
+</body>
+</html>

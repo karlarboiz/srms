@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('include/header',{
+    Title: "Assign Subjects"
+  }) %>
+</head>
+<body>
+    <%- include('include/nav') %>
+    <% if(assignSubject.error) {%>
+      <h5 class="container-fluid text-center mx-auto assign-subjects__message"><%= assignSubject.message%></h5>
+    <%}%>
+    <form action="/assign-subjects/save" method="POST" class="container mx-auto col-lg-5 mt-5 assign-subjects text-center">
+      
+      <h5 class="assign-subjects__header">Subject Assignment to Teacher</h5>
+      
+      <div class="mt-3 mb-3">
+        <select class="form-select" name="teacher" aria-label="Default select example">
+
+            <% for(const data of teachers) {%>
+              <option value="<%=data._id%>"><%=data.name.firstName%></option>
+            <%}%>
+          </select>
+    
+    
+      </div>
+      <div class="mt-3 mb-3">
+        <select class="form-select" name="subject" aria-label="Default select example">
+
+            <% for(const data of subjects) {%>
+              <option value="<%=data._id%>"><%=data.subjectName%> <%=data.subjectLabel%></option>
+            <%}%>
+          </select>
+      </div>
+      
+
+    
+      <div class="mt-3 mb-3">
+        <input type="submit" value="Assign" class="assign-subjects__btn">
+      </div>
+
+     
+      </form>
+
+      <%- include('include/bootstrapfunctionalities') %>
+</body>
+</html>

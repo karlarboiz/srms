@@ -1,0 +1,26 @@
+@use '../../abstract' as *;
+@use '../../mixin' as *;
+
+.grade-students__form {
+
+    &-btn {
+        @include buttonDesigns
+    }
+}
+
+.grade-edit {
+    &__student-name {
+        font-size: $title;
+        color: $primary-color;
+    }
+
+    &__subject-name {
+        color: $fourth;
+    }
+
+    &__btn {
+        @include buttonDesigns;
+        background-color: $secondary;
+        color: $primary-color;
+    }
+}

@@ -1,0 +1,16 @@
+@use '../../abstract' as *;
+@use '../../mixin' as *;
+
+.signup-success {
+    &__header {
+        color: $primary-color;
+    }
+
+    &__link {
+        color: $fourth;
+
+        &-return {
+            @include linkDesign;
+        }
+    }
+}

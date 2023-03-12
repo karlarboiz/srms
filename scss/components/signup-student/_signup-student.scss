@@ -1,0 +1,32 @@
+@use '../../abstract' as *;
+@use '../../mixin' as *;
+
+.signup {
+
+    &__message {
+      @include errorMessage;
+    }
+
+    &__header {
+        color: $primary-color;
+     }
+
+    &__btn {
+        @include buttonDesigns;
+        background-color: $primary-color;
+        color: $secondary-color;
+    }
+
+}
+
+#img {
+    color: $primary-color;
+}
+
+#img-output {
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    object-fit: fill;
+    color: $primary-color;
+}

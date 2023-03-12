@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('include/header',{
+        Title: 'Main'
+    }) %>
+
+</head>
+<body>
+    <%- include('include/nav') %>
+    
+        <div class="text-center mt-5 container welcome-header">
+            <h1 class="display-4 ">
+                Welcome!
+            </h1>
+    
+            <h1 class="text-center"> <%= userInfo.designation %></h1>
+        </div>
+        
+    <%- include('include/bootstrapfunctionalities') %>
+</body>
+</html>

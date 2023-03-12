@@ -1,0 +1,15 @@
+@use '../../abstract' as *;
+@use '../../mixin' as *;
+
+.create-subjects {
+    &__message {
+        @include errorMessage;
+    }
+    &__header {
+        color: $primary-color
+    }
+
+    &__btn {
+        @include buttonDesigns;
+    }
+}

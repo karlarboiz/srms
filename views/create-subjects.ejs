@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('include/header',{
+    Title: "Create Subjects"
+  }) %>%>
+    <title>Document</title>
+</head>
+<body>
+    <%- include('include/nav') %>
+    <% if(createSubject.error) {%>
+      <h5 class="container-fluid text-center mx-auto create-subjects__message"><%=createSubject.message%></h5>
+    <%}%>
+    <form action="/create-subjects/save" method="POST" class="container mx-auto col-lg-5 mt-5 text-center create-subjects">
+      <h5 class="create-subjects__header">Create Subject</h5>
+      <div class="form-floating mb-3 mt-3">
+        <input type="text" class="form-control" id="subjectname" placeholder="Enter Subject Name" name="subjectname" value="<%=createSubject.subjectName%>">
+        <label for="subjectname">Subject Name</label>
+      </div>
+      
+      <div class="form-floating mt-3 mb-3">
+        <input type="text" class="form-control" id="subjectlabel" placeholder="Enter Subject Label" name="subjectlabel" value="<%=createSubject.subjectLabel%>">
+        <label for="subjectlabel">Subject Label</label>
+      </div>
+
+    
+      <div class="mt-3 mb-3">
+        <input type="submit" value="Create Subject" class="create-subjects__btn">
+      </div>
+
+     
+      </form>
+
+      <%- include('include/bootstrapfunctionalities') %>
+</body>
+</html>

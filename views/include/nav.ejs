@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+    <a class="navbar-brand col-lg-2 col-3 text-center" href="/">LOGO</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav">
+        
+        <% if(!locals.isAuth) {%>
+          <li class="nav-item col-auto">
+            <a class="nav-link" href="/signup-page">Sign Up</a>
+          </li>
+          <li class="nav-item col-auto">
+            <a class="nav-link" href="/log-in">Log In</a>
+          </li>
+        <%}%>
+        
+        <% if(locals.designationUser === 'Admin') {%>
+          <li class="nav-item col-auto">
+            <a class="nav-link" href="/create-subjects">Create Subjects</a>
+          </li>
+  
+          <li class="nav-item col-auto" >
+            <a class="nav-link" href="/assign-subjects">Assign Subjects</a>
+          </li>
+        <%}%>
+
+        <% if(locals.designationUser === 'Teacher') {%>
+          <li class="nav-item col-auto">
+            <a class="nav-link" href="/grade-students/<%=locals.userID%>">Grade Students</a>
+          </li>
+  
+        <%}%>
+          
+        <% if(locals.designationUser === 'Student') {%>
+          <li class="nav-item col-auto">
+            <a class="nav-link" href="/enrollment/<%=locals.userID%>">Enroll</a>
+          </li>
+          <li class="nav-item col-auto">
+            <a class="nav-link" href="/view-grades/<%=locals.userID%>">View Grades</a>
+          </li>
+        <%}%>
+        
+        <% if(locals.isAuth) {%>
+          <li class="nav-item col-auto" >
+            <a class="nav-link" href="/settings/<%=locals.userID%>">Settings</a>
+          </li>
+         
+        <%}%>
+        
+      </ul>
+     
+    </div>
+
+  </nav>

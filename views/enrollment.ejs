@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('include/header',{
+    Title: "Enrollment"
+  }) %>
+</head>
+<body>
+    <%- include('include/nav') %>
+   <% if(enrollmentData.error) {%>
+    <h5 class="mx-auto text-center container-fluid enrollment-form__message">
+        <%=enrollmentData.message%>
+    </h5>
+  <%}%>
+    
+  <% if(enrolledSubjects.length === 0 || !enrolledSubjects) {%>
+    <table class="table table-light mt-5 container">
+      <thead class="thead-dark">
+        <tr>
+        
+          <th scope="col">Subject Name</th>
+          <th scope="col">Teacher Name</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+  
+        <form action="/enrollment/<%=locals.userID%>/save" method="POST" class="enrollment-form">
+          <input type="hidden" value="<%= locals.csrfToken %>" name="_csrf"> 
+          <% for(const data of subjects) {%>
+            <tr>
+           
+              <td> <%=data.subjectName%></td>
+              <td> <%=data.teacherName%> </td>
+              <td><input class="form-check-input" type="checkbox" value="<%=data._id%>" id="flexCheckDefault" name="enrollsubject"></td>
+            </tr>
+          <%}%>
+  
+          <tr>
+            <th></th>
+            <td></td>
+            <td><input type="submit" value="Enroll" class="enrollment-form__btn"></td>
+            
+          </tr>
+        </form>
+  
+      </tbody>
+    </table>
+  
+  <%} else if(enrolledSubjects.length >1){%>
+    <div class="container mx-auto text-center mt-5 enrolled">
+      <h1 class="enrolled__header display-4">You have enrolled already</h1>
+      <a href="/view-grades/<%=locals.userID%>" class="bg-dark">view grades</a>
+    </div>
+  <%}%>
+
+    <%- include('include/bootstrapfunctionalities') %>
+</body>
+</html>

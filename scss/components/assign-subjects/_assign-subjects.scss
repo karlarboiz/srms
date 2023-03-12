@@ -1,0 +1,17 @@
+@use '../../abstract' as *;
+@use '../../mixin' as *;
+
+.assign-subjects {
+
+    &__message {
+        @include errorMessage;
+    }
+
+    &__header {
+        color: $primary-color
+    }
+
+    &__btn {
+        @include buttonDesigns;
+    }
+}

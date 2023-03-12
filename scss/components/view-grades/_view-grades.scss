@@ -1,0 +1,9 @@
+@use '../../abstract' as *;
+@use '../../mixin' as *;
+
+
+.view-grades {
+    &__header {
+        color: $primary-color;
+    }
+}

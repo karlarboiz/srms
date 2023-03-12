@@ -1,0 +1,23 @@
+@use '../../abstract' as *;
+@use '../../mixin' as *;
+
+.log-in {
+    &__header {
+       color: $primary-color;
+    }
+
+    &__message{
+        @include errorMessage;
+        
+    }
+
+    &__btn {
+        @include buttonDesigns;
+        background-color: $primary-color;
+        color: $secondary-color;
+    }
+}
+
+.welcome-header {
+    color: $primary-color;
+}

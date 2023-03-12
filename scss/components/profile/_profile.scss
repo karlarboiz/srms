@@ -1,0 +1,32 @@
+@use '../../abstract' as *;
+@use '../../mixin' as *;
+
+.profile {
+
+    &--name {
+        color: $primary-color;
+    }
+    &--photo {
+        width: 9rem;
+        height: 9rem;
+        border-radius: 50%;
+        object-fit:fill;
+    }
+
+    &--name {
+        font-size: $title;
+        font-weight: 700;
+    }
+
+    &--logout__btn {
+        @include buttonDesigns;
+        background-color: $primary-color;
+        color: $secondary-color;
+    }
+
+    &-edit__btn {
+        @include linkDesign;
+    }
+    
+}
+

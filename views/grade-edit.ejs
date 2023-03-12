@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('include/header',{
+        Title: "Grade Edit"
+      }) %>
+</head>
+<body>
+    <%- include('include/nav') %>
+    <form action="/submit-grade/<%= grade._id %>/edit/<%=locals.userID%>" method="POST" class="container form-group mx-auto mt-5 col-lg-5 text-center grade-edit">
+        <div class="mb-3 mt-3 ">
+            <p class="grade-edit__student-name"><%= grade.enrolledUserIDName %></p>
+            <label for="gradeedit" class="grade-edit__subject-name"> <%= grade.subjectName %></label> <br>
+            <input type="number" value="<%= grade.grades %>" name="gradeedit"> <br>
+             
+        </div>
+          
+        <input type="submit" value="Update" class="mt-2 grade-edit__btn">
+          
+    </form>
+    <%- include('include/bootstrapfunctionalities') %>
+</body>
+</html>
